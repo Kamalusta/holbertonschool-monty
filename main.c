@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
   FILE *code;
   char buff[50];
+  int i;
 
   if (argc != 2)
     {
@@ -23,9 +24,9 @@ int main(int argc, char *argv[])
       printf("Error: Can't open file %s\n", argv[1]);
       exit(EXIT_FAILURE);
     }
-  while(fgets(buff, 50, code))
+  for (i = 1; fgets(buff, 50, code); i++)
     {
-      printf("%s\n", buff);
+      instruction(buff, i);
     }
   return (0);
 }
