@@ -9,7 +9,7 @@
 void instruction(stack_t **stack, char *cmdline, int n)
 {
   char *token;
-  instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {NULL, NULL}};
+  instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}, {NULL, NULL}};
   int i = 0;
   
   token = strtok(cmdline, " \t\n");
