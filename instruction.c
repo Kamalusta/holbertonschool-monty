@@ -23,9 +23,16 @@ void instruction(stack_t **stack, char *cmdline, int n)
 	      cmds[i].f(stack, n);
 	      break;
 	    }
+	  if (!atoi(token))
+	    {
+	      fprintf(stderr, "L%d: usage: push integer", n);
+	      exit(EXIT_FAILURE);
+	    }
 	  cmds[i].f(stack, atoi(token));
 	  break;
 	}
       i++;
     }
+  /*  printf("L%d: unknown instruction %s", n, token);
+      exit(EXIT_FAILURE); */
  }
