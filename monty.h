@@ -37,4 +37,5 @@ typedef struct instruction_s
 void instruction(stack_t **stack, char *cmdline, int n);
 void push (stack_t **stack, unsigned int line_number);
 void pall (stack_t **stack, unsigned int line_number);
+void freed(stack_t *stack);
 #endif /*MONTY_H*/
