@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * pop - The opcode pop
+ *
+ * @stack: stack to store data
+ * @line_number: number of line
+ */
+
 void pop(stack_t **stack, unsigned int line_number)
 {
 	FILE *file = NULL;
