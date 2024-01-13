@@ -13,15 +13,15 @@ int main(int argc, char *argv[])
 	int i;
 	stack_t *stack;
 	FILE *code;
-  	stack = NULL;
 
+	stack = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	code = fopen(argv[1], "r");
-	
+
 	if (!code)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -29,9 +29,9 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1; fgets(buff, 100, code); i++)
 	{
-	  /* printf("length %lu\n", strlen(buff));*/
-	  if (strlen(buff) > 1)
-	     instruction(&stack, buff, i);
+		/* printf("length %lu\n", strlen(buff));*/
+		if (strlen(buff) > 1)
+			instruction(&stack, buff, i);
 	}
 	fclose(code);
 	freed(stack);
