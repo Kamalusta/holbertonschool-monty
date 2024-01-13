@@ -15,6 +15,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
   char *token;
   instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
   int i = 0;
+  
   if (!cmdline)
       return;
   token = strtok(cmdline, " \t\n$");
@@ -32,7 +33,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
 				cmds[i].f(stack, n);
 				break;
 			}
-			if (!atoi(token) && strcmp(token, "0") != 0)
+			if (token == NULL || (!atoi(token) && strcmp(token, "0") != 0))
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", n);
 				freed(*stack);
