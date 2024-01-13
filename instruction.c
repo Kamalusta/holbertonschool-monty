@@ -12,12 +12,13 @@
 
 void instruction(stack_t **stack, char *cmdline, int n)
 {
-	char *token;
-	instruction_t cmds[] = {{"push", push}, {"pall", pall}, {NULL, NULL}};
-	int i = 0;
-	token = strtok(cmdline, " \t\n");
-	while (cmds[i].opcode)
-	{
+  char *token;
+  instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
+  int i = 0;
+  
+  token = strtok(cmdline, " \t\n");
+  while (cmds[i].opcode)
+    {
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
 			token = strtok(NULL, " \t\n");
@@ -36,7 +37,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
 			break;
 		}
 		i++;
-	}
+    }
 	if (!cmds[i].opcode)
 	  {
 	    printf("L%d: unknown instruction %s", n, token);
