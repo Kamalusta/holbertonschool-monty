@@ -21,7 +21,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
   if (!token)
     return;
   else if(token[0] == '#')
-    exit(EXIT_FAILURE);
+    return;
   while (cmds[i].opcode)
     {
 		if (strcmp(cmds[i].opcode, token) == 0)
