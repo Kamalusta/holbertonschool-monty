@@ -9,10 +9,6 @@
 
 void pint(stack_t **stack, unsigned int line_number)
 {
-  /*	FILE *file = NULL;
-	char *line = NULL;
-  */
-  /*  FILE *code = NULL;*/
 	if (*stack)
 		printf("%d\n", (*stack)->n);
 	else
