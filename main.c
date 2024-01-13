@@ -13,13 +13,17 @@ int main(int argc, char *argv[])
 	int i;
 	stack_t *stack;
 	FILE *code;
-
+	size_t len = 0;
+	
 	stack = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	len = strlen(argv[1]);
+	if (argv[1][len-1] != 'm')
+	  exit(EXIT_FAILURE);
 	code = fopen(argv[1], "r");
 
 	if (!code)
