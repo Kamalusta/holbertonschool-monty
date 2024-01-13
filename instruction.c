@@ -18,8 +18,10 @@ void instruction(stack_t **stack, char *cmdline, int n)
   if (!cmdline)
       return;
   token = strtok(cmdline, " \t\n");
-  if (!token || (token && token[0] == '#'))
+  if (!token)
     return;
+  else if(token[0] == '#')
+    exit(EXIT_FAILURE);
   while (cmds[i].opcode)
     {
 		if (strcmp(cmds[i].opcode, token) == 0)
