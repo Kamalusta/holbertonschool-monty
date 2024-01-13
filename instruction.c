@@ -18,15 +18,13 @@ void instruction(stack_t **stack, char *cmdline, int n)
   if (!cmdline)
       return;
   token = strtok(cmdline, " \t\n");
-  if (!token)
+  if (!token || (token && token[0] == '#'))
     return;
-  /*printf("test%s\n",token);*/
   while (cmds[i].opcode)
     {
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
 			token = strtok(NULL, " \t\n");
-			/*printf("test%s\n",token);*/
 			if (i == 1)
 			{
 				cmds[i].f(stack, n);
