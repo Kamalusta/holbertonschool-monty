@@ -28,11 +28,8 @@ void instruction(stack_t **stack, char *cmdline, int n)
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
 			token = strtok(NULL, " \t\n$");
-			if (i == 1)
-			{
-				cmds[i].f(stack, n);
-				break;
-			}
+			if (i == 0)
+			  {
 			if (token == NULL || is_number(token) == 0)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", n);
@@ -41,6 +38,12 @@ void instruction(stack_t **stack, char *cmdline, int n)
 			}
 			cmds[i].f(stack, atoi(token));
 			break;
+			  }
+			else
+			  {
+			    cmds[i].f(stack, n);
+			    break;
+			  }
 		}
 		i++;
 	}
