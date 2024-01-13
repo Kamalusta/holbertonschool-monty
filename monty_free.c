@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * free_stack - function to deallocate memory
+ *
+ * @stack: stack to storage data
+ */
+
 void free_stack(stack_t **stack)
 {
 	stack_t *current = *stack;
