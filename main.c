@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	int i;
 	stack_t *stack;
 	FILE *code;
-	
+
 	stack = NULL;
 	if (argc != 2)
 	{
