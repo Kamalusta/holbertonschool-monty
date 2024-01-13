@@ -29,7 +29,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
 			}
 			if (!atoi(token) || !token)
 			{
-				fprintf(stderr, "L%d: usage: push integer", n);
+				fprintf(stderr, "L%d: usage: push integer\n", n);
 				freed(*stack);
 				exit(EXIT_FAILURE);
 			}

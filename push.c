@@ -12,13 +12,14 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!node)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		freed(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node->n = line_number;
 	node->next = *stack;
 	node->prev = NULL;
+
 	if (*stack)
 		(*stack)->prev = node;
 	*stack = node;
