@@ -33,7 +33,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
 				cmds[i].f(stack, n);
 				break;
 			}
-			if (token == NULL || (!atoi(token) && strcmp(token, "0") != 0))
+			if (token == NULL || (atoi(token) == 0 && strcmp(token, "0") != 0))
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", n);
 				freed(*stack);
