@@ -12,7 +12,6 @@
 
 void instruction(stack_t **stack, char *cmdline, int n)
 {
-<<<<<<< HEAD
   char *token;
   instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
   int i = 0;
@@ -23,22 +22,6 @@ void instruction(stack_t **stack, char *cmdline, int n)
     return;
   while (cmds[i].opcode)
     {
-=======
-	char *token;
-	instruction_t cmds[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}
-	};
-	int i = 0;
-
-	if (!cmdline)
-		return;
-	token = strtok(cmdline, " \t\n");
-	if (!token)
-		return;
-	while (cmds[i].opcode)
-	{
->>>>>>> 224ad59887716fd72c2be38cd5cb4dda4ea3f18f
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
 			token = strtok(NULL, " \t\n");
