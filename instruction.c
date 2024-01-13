@@ -12,21 +12,23 @@
 
 void instruction(stack_t **stack, char *cmdline, int n)
 {
-  char *token;
-  instruction_t cmds[] = {{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
-  int i = 0;
-  if (!cmdline)
-      return;
-  token = strtok(cmdline, " \t\n");
-  if (!token)
-    return;
-  /*printf("test%s\n",token);*/
-  while (cmds[i].opcode)
-    {
+	char *token;
+	instruction_t cmds[] = {
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
+		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}
+	};
+	int i = 0;
+
+	if (!cmdline)
+		return;
+	token = strtok(cmdline, " \t\n");
+	if (!token)
+		return;
+	while (cmds[i].opcode)
+	{
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
 			token = strtok(NULL, " \t\n");
-			/*printf("test%s\n",token);*/
 			if (i == 1)
 			{
 				cmds[i].f(stack, n);
@@ -42,11 +44,11 @@ void instruction(stack_t **stack, char *cmdline, int n)
 			break;
 		}
 		i++;
-    }
+	}
 	if (!cmds[i].opcode)
-	  {
-	    fprintf(stderr, "L%d: unknown instruction %s\n", n, token);
-	    freed(*stack);
-	    exit(EXIT_FAILURE);
-	  }
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", n, token);
+		freed(*stack);
+		exit(EXIT_FAILURE);
+	}
 }
