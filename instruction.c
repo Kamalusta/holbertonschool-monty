@@ -17,7 +17,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
   int i = 0;
   if (!cmdline)
       return;
-  token = strtok(cmdline, " \t\n");
+  token = strtok(cmdline, " \t\n$");
   if (!token)
     return;
   else if(token[0] == '#')
@@ -26,7 +26,7 @@ void instruction(stack_t **stack, char *cmdline, int n)
     {
 		if (strcmp(cmds[i].opcode, token) == 0)
 		{
-			token = strtok(NULL, " \t\n");
+			token = strtok(NULL, " \t\n$");
 			if (i == 1)
 			{
 				cmds[i].f(stack, n);
