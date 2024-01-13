@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	char buff[50];
+	char buff[100];
 	int i;
 	stack_t *stack;
 	FILE *code;
@@ -27,9 +27,11 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 1; fgets(buff, 50, code); i++)
+	for (i = 1; fgets(buff, 100, code); i++)
 	{
-		instruction(&stack, buff, i);
+	  /* printf("length %lu\n", strlen(buff));*/
+	  if (strlen(buff) > 1)
+	     instruction(&stack, buff, i);
 	}
 	fclose(code);
 	freed(stack);
